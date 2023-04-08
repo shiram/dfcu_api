@@ -1,58 +1,19 @@
 # DFCU_API
-Authenticate the user with the system and obtain the auth_token
-Request
-Method
-URL            
-POST
-api/accounts/loans/
 
+#1. Creating the environment.
+Create a python environment using virtualenv. This guide assumes you are working on a linux environment as the commands listed are linux commands.
+To install virtualenv if not available on your system, use the following commands.
 
+​​sudo apt-get install python3-pip
 
-Type
-Params
-Values
-HEAD
-POST
-Auth token
-Account number
+sudo pip3 install virtualenv
 
+Create a directory/folder mkdir myProject and cd myProject
 
-string
-string
+virtualenv venvMyProject  - to create an environment.
 
-
-
-Auth Token
- An Authentication token  must be sent with all client requests. The token helps the server to validate and authorize the request source.
-
-Account Number
- An account  must be sent with all client requests. This is the account number which is validated and whose loans are sent in response.
-
-
-Response
-Status
-Response
-200
-{
-   "response": {
-       "customer_id": "C003",
-       "customer_name": "James Blunt",
-       "customer_account": "5000145080",
-       "customer_loans": [
-           {
-               "loan_id": "L000005",
-               "disbursement_date": "2023-02-16T12:24:54Z",
-               "outstanding_amount": 500000
-           }
-       ]
-   }
-}
-
-
-
-auth_key (string) - all further API calls must have this key in header
-401
-{"error":"Invalid Auth Token."}
-500
-{"error":"Something went wrong. Please try again later."}
-
+#2. Pulling project from github.
+Do git pull https://github.com/shiram/dfcu_api.git   to get project.
+Activate our environment with this command, source venvMyProject/bin/activate
+Run pip  install -r requirements.txt to install project requirements.
+Run ./manage.py runserver to start running the development server.
