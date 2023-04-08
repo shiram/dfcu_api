@@ -2,8 +2,9 @@ from django.shortcuts import render
 from .models import Customer, Loan, Account
 from .serializers import Customerserializer, LoanSerializer, AccountSerializer
 from rest_framework import permissions, viewsets
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from rest_framework.views import APIView
+import json
 
 
 
@@ -38,8 +39,9 @@ class CustomerLoansView(APIView):
 	permission_classes = (permissions.IsAuthenticated, )
 
 	def post(self, request):
-		if 'account' in request.POST and request.POST['account']:
-			account = request.POST['account']
+		data = json.loads(request.body.decode("utf-8"))
+		if data['account']:
+			account = data['account']
 			try:
 				customer_account = Account.objects.get(account_number=account)
 				if customer_account:
@@ -70,7 +72,8 @@ class CustomerLoansView(APIView):
 					return JsonResponse({'response': message})
 			except Exception as e:
 				message = 'An error ocurred. The Account number ('+account+') provided does not exist.'
+				print("Error Here")
 				print(e)
 				return JsonResponse({'response': message})
 		else:
-			return JsonResponse({'response': 'You need to provide account and use post method.'})
+			return JsonResponse({'response': 'You need to provide account number.'})
