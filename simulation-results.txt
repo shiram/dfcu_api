@@ -1,0 +1,6 @@
+{"response": "No Loans found for account - 6010105070"}
+{"response": {"customer_id": "C003", "customer_name": "James Blunt", "customer_account": "5000145080", "customer_loans": [{"loan_id": "L000005", "disbursement_date": "2023-02-16T12:24:54Z", "outstanding_amount": 500000}]}}
+{"response": "No Loans found for account - 4006010097"}
+{"response": "No Loans found for account - 1003010405"}
+{"response": "No Loans found for account - 1112070906"}
+{"response": {"customer_id": "C001", "customer_name": "Paul Logan", "customer_account": "1002000989", "customer_loans": [{"loan_id": "L000001", "disbursement_date": "2023-03-01T12:09:05Z", "outstanding_amount": 2000000}, {"loan_id": "L000002", "disbursement_date": "2023-01-02T12:00:00Z", "outstanding_amount": 2500000}, {"loan_id": "L000003", "disbursement_date": "2023-04-04T12:11:24Z", "outstanding_amount": 5800000}]}}
