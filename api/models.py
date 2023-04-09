@@ -52,3 +52,19 @@ class Account(models.Model):
 
 	def __str__(self):
 		return (f"{self.customer_id} - {self.account_number}")
+
+# add requests log model
+
+class APILog(models.Model):
+	class Meta:
+		verbose_name = _("API Log")
+		verbose_name_plural = _("API Logs")
+
+	log_id = models.CharField(max_length=5)
+	num_requests = models.IntegerField(default=0)
+	num_failed_requests = models.IntegerField(default=0)
+	num_pos_requests = models.IntegerField(default=0)
+	num_neg_requests = models.IntegerField(default=0)
+
+	def __str__(self) -> str:
+		return f"{self.log_id}"
