@@ -21,4 +21,5 @@ Activate our environment with this command,
 source venvMyProject/bin/activate
 
 Run pip  install -r requirements.txt -- to install project requirements.
+
 Run ./manage.py runserver -- to start running the development server.
